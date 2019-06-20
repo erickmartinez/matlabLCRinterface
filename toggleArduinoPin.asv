@@ -1,0 +1,20 @@
+function toggleArduinoPin(arduino_hdl,pinNumber,onOrOff)
+% This function will turn the selected pin on the arduino on or off
+% Parameters
+% arduino_hdl: obj
+%   The handle to the arduino connection
+% pinNumber: int
+%   The pin number to toggle
+% onOrOff: 1,0
+%   The pin state
+    pinNumber_str = sprintf('D%d',pinNumber);
+    allPins = [2:9];
+    off = 0;
+    try
+        writeDigitalPin(arduino_hdl,pinNumber_str,onOrOff);
+    catch err
+        msg = 'Error with pin toggle';
+        logMessage(app,msg)
+    end
+end
+

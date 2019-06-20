@@ -1,0 +1,13 @@
+function DisconnectDevices(app)
+% Close all connections and reset instruments
+% Parameters
+% ----------
+% app : obj
+%   A handle to the GUI instance
+    instrreset;
+    app.AcquisitionPanel.Visible    = 'off';
+    app.GraphsPanel.Visible         = 'off';
+    app.CorrectionsPanel.Visible    = 'off';
+    app.LCRLamp.Color               = [0.149 0.149 0.149];
+    app.ArduinoL
+end

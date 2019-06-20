@@ -1,0 +1,8 @@
+function turnArduinoPinOn(arduino_hdl,pinNumber)
+% This function will leave the selected pin on while turning the rest
+% (1-8) off
+    availablePins = 2:1:9;
+    for pin=min(availablePins):1:max(availablePins)
+        if  pin == pinNumber
+            writeDigitalPin(arduino_hdl,sprintf('D%d',pinNumber),
+end
