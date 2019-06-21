@@ -4,10 +4,16 @@ function DisconnectDevices(app)
 % ----------
 % app : obj
 %   A handle to the GUI instance
+
+    if isprop(app.handle_arduino,'status') && 
+        fclose(app.handle_arduino);
+    end
+    % Reset all connactions
     instrreset;
     app.AcquisitionPanel.Visible    = 'off';
     app.GraphsPanel.Visible         = 'off';
     app.CorrectionsPanel.Visible    = 'off';
     app.LCRLamp.Color               = [0.149 0.149 0.149];
-    app.ArduinoL
+    app.ArduinoLamp.Color           = [0.149 0.149 0.149];
+    app.PowerSwitch.Value           = 'Off';
 end

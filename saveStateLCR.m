@@ -9,7 +9,7 @@ function saveStateLCR(app)
     state.Level     = app.LevelVEditField.Value;
     state.IntTime   = app.IntegrationTimeDropDown.Value;
     state.AvgRate   = app.AvgRateDropDown.Value;
-    msg = fprintf('saved state values for %s',state.Cox);
+    msg = fprintf('Saved state values for %s',state.Cox);
     logMessage(app,msg);
     save('stateLCR.mat','state');
 end

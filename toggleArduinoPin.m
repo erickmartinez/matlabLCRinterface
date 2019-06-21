@@ -11,10 +11,10 @@ function toggleArduinoPin(arduino_hdl,pinNumber,onOrOff)
     try
         writeDigitalPin(arduino_hdl,pinNumber_str,onOrOff);
     catch err
-        traceErr = getReport(err);
         msg = sprintf('Error with pin %d toggle',pinNumber);
         logMessage(app,msg)
-        logMessage(app,traceErr);
+        logMessage(app,err.message);
+        getReport(err)
     end
 end
 
