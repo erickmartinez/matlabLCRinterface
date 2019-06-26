@@ -1,7 +1,0 @@
-function turnArduinoPinsOff(arduino_hdl)
-%  This function will turn all Arduino pins off
-        
-availablePins = 2:1:9;
-
-end
-

@@ -1,23 +1,39 @@
 function loadStateLCR(app)
+% This function loads all the parameters in the acquisition panel to be
+% from the mat file 'stateLCR.mat'
+% Parameters
+% ----------
+% app : obj
+%   A handle to the app designer GUI instance
+
     fileName = 'stateLCR.mat';
     if exist(fileName)
-        load(fileName);
-        if strcmp(stateLCR.Path,'')
-            app.DirectoryTextArea.Value = pwd;
-        else
-            app.DirectoryTextArea.Value = stateLCR.Path;
+        try
+            load(fileName);
+            if strcmp(state.Path,'')
+                app.DirectoryTextArea.Value = pwd;
+            else
+                app.DirectoryTextArea.Value       = state.Path;
+            end
+            app.FiletagEditField.Value        = state.FileTag;
+            app.FrequencyHzEditField.Value    = state.Freq;
+            app.BiasStartVEditField.Value     = state.BiasStart; 
+            app.BiasStopVEditField.Value      = state.BiasStop;
+            app.BiasStepVEditField.Value      = state.BiasStep;
+            app.TestCoxFEditField.Value       = state.Cox;
+            app.LevelVEditField.Value         = state.Level;
+            app.IntegrationTimeDropDown.Value = state.IntTime;
+            app.AvgRateDropDown.Value         = state.AvgRate;
+            app.activePins                    = state.activePins;
+            for pin=1:8
+                togglePinState(app,pin,state.activePins(pin));
+            end
+
+            fprintf('loaded state values from previous measurement.\n');
+            delete(fullfile(pwd,fileName));
+        catch err
+            fprintf(err.message);
+            fprintf('\n');
         end
-            state.FileTag   = app.FileTagEditField.Value;
-            state.Freq      = app.FrequencyHzEditField.Value;
-            state.BiasStart = app.BiasStartVEditField.Value;
-            state.BiasStop  = app.BiasStopVEditField.Value;
-            state.BiasStep  = app.BiasStepVEditField.Value;
-            state.Cox       = app.TestCoxFEditField.Value;
-            state.Level     = app.LevelVEditField.Value;
-            state.IntTime   = app.IntegrationTimeDropDown.Value;
-            state.AvgRate   = app.AvgRateDropDown.Value;
-            msg = fprintf('loaded state values for %s',state.Cox);
-            logMessage(app,msg);
-        delete(fileName);
     end
 end

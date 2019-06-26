@@ -1,4 +1,4 @@
-function turnArduinoPinOn(arduino_hdl,pinNumber)
+function turnArduinoPinOn(app,pinNumber)
 % This function will leave the selected pin on while turning the rest
 % (1-8) off
     pinMap = pinNumber + 1;
@@ -7,9 +7,9 @@ function turnArduinoPinOn(arduino_hdl,pinNumber)
     on = 1;
     for pin = min(availablePins):1:max(availablePins)
         if  pin == pinMap
-            toggleArduinoPin(arduino_hdl,pinMap,on);
+            toggleArduinoPin(app,pinMap,on);
         else 
-            toggleArduinoPin(arduino_hdl,pin,off);
+            toggleArduinoPin(app,pin,off);
         end
     end
 end

@@ -1,16 +1,17 @@
-function saveStateLCR(app)
-    state.Path      = app.DirectoryTextArea.Value;
-    state.FileTag   = app.FileTagEditField.Value;
-    state.Freq      = app.FrequencyHzEditField.Value;
-    state.BiasStart = app.BiasStartVEditField.Value;
-    state.BiasStop  = app.BiasStopVEditField.Value;
-    state.BiasStep  = app.BiasStepVEditField.Value;
-    state.Cox       = app.TestCoxFEditField.Value;
-    state.Level     = app.LevelVEditField.Value;
-    state.IntTime   = app.IntegrationTimeDropDown.Value;
-    state.AvgRate   = app.AvgRateDropDown.Value;
-    msg = fprintf('Saved state values for %s',state.Cox);
-    logMessage(app,msg);
+function [state] = saveStateLCR(app)
+    state.Path       = app.DirectoryTextArea.Value;
+    state.FileTag    = app.FiletagEditField.Value;
+    state.Freq       = app.FrequencyHzEditField.Value;
+    state.BiasStart  = app.BiasStartVEditField.Value;
+    state.BiasStop   = app.BiasStopVEditField.Value;
+    state.BiasStep   = app.BiasStepVEditField.Value;
+    state.Cox        = app.TestCoxFEditField.Value;
+    state.Level      = app.LevelVEditField.Value;
+    state.IntTime    = app.IntegrationTimeDropDown.Value;
+    state.AvgRate    = app.AvgRateDropDown.Value;
+    state.activePins = app.activePins;
+   
     save('stateLCR.mat','state');
+    fprintf('Saved acquisition parameters for this measurement.\n');
 end
     

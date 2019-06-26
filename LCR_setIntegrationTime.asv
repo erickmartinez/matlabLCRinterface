@@ -9,6 +9,6 @@ function LCR_setIntegrationTime(app,timeStr,AvgRate)
 %   The integration time: SHORT, MEDIUM or LONG
 % AvgRate : integer
 %   The averaging rate : 1,2,4,8,16,32,64,128
-    query = sprintf('APER %s,%d',upper(timeStr),AvgRate);
-    fprintf(app.handle_lcr,query);
+    qy
+    fprintf(app.handle_lcr,'APER %s,%d',upper(timeStr),AvgRate);
 end

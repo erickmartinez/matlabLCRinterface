@@ -25,6 +25,6 @@ function loadConfigFromFile(app,file,path)
             fprintf(err_msg);
         end
     else
-        fprintf('Could not load the file.\n');
+        fprintf('File was not loaded.\n');
     end
 end

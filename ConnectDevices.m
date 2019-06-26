@@ -6,16 +6,8 @@ function ConnectDevices(app)
 % app : obj
 %   A handle to the GUI instance
 %
-% Returns
-% -------
-% handle_lcr : gpib obj
-%   A handle to the LCR meter's GPIB
-% h_arduino ; arduino obj 
-%   A handle to the arduino
 
-    handle_lcr  = 0;
     success     = 1;
-    handle_arduino   = 0;
     DisconnectDevices(app);
     
     % Opening connection to arduino

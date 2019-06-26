@@ -27,6 +27,9 @@ function togglePinState(app,pinNumber,value)
         buttonHandle.BackgroundColor    = inactiveColor;
     end
     
+    % Change the state of the pin
+    buttonHandle.Value = value;
+    
     % Change the pin state in the array
     app.activePins(pinNumber) = value;
 end
