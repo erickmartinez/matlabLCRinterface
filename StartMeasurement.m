@@ -39,10 +39,6 @@ function StartMeasurement(app)
         avgRate     = str2num(app.AvgRateDropDown.Value); 
         modeType    = app.ModeDropDown.Value;
         
-        % This test capacitance value is used to define the measurement
-        % mode (either RsCs or RpCp)
-        Cox_test = app.TestCoxFEditField.Value;
-        
         % The worst case accuracy of the LCR
         basicAccuracyC = 0.05;                           % percent
         basicAccuracyV = 0.1;                            % percent
@@ -239,15 +235,15 @@ function StartMeasurement(app)
             
             
             % SAVE DATA
-            logMessage(app,'Saving the data.');
             if app.stopFlag == 0
+                logMessage(app,'Saving the data.');
                 fulltag     = strcat(filetag,'-',TimeStamp);
                 filename    = fullfile(path{1},fulltag);
                 saveFigure(app,filename,V,C,C_err,legStr);
                 % Save the configuration
                 state = saveStateLCR(app);
-                save(strcat(filename,'.mat'),'V','C','C_err','R','R_err',...
-                    'freq','pinIndex','state');
+                save(strcat(filename,'.mat'),'V','V_err','C','C_err',...
+                    'R','R_err','freq','pinIndex','state');
 
             end % if app.stopFlag == 0
             

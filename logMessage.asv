@@ -22,6 +22,6 @@ function logMessage(app,msg)
     % open the file in append mode
     
     fprintf(fid,msgWithTS);
-    fprintf(fid,'\r\n');
+    fprintf(fid,'\r\n);
     fclose(fid);
 end
