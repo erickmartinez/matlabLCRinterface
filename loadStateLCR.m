@@ -20,7 +20,6 @@ function loadStateLCR(app)
             app.BiasStartVEditField.Value     = state.BiasStart; 
             app.BiasStopVEditField.Value      = state.BiasStop;
             app.BiasStepVEditField.Value      = state.BiasStep;
-            app.TestCoxFEditField.Value       = state.Cox;
             app.LevelVEditField.Value         = state.Level;
             app.IntegrationTimeDropDown.Value = state.IntTime;
             app.AvgRateDropDown.Value         = state.AvgRate;

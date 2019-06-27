@@ -17,7 +17,6 @@ function loadConfigFromFile(app,file,path)
             app.BiasStepVEditField.Value    = state.BiasStep;
             app.LengthEditField.Value       = state.Length;
             app.RepetitionsEditField.Value  = state.Averages;
-            app.TestCoxFEditField.Value     = state.Cox;
         catch err
             err_msg = strrep(getReport(err), '\', '\\');
             fprintf('Error loading values.\n');

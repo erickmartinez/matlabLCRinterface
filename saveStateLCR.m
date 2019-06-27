@@ -5,7 +5,6 @@ function [state] = saveStateLCR(app)
     state.BiasStart  = app.BiasStartVEditField.Value;
     state.BiasStop   = app.BiasStopVEditField.Value;
     state.BiasStep   = app.BiasStepVEditField.Value;
-    state.Cox        = app.TestCoxFEditField.Value;
     state.Level      = app.LevelVEditField.Value;
     state.IntTime    = app.IntegrationTimeDropDown.Value;
     state.AvgRate    = app.AvgRateDropDown.Value;
