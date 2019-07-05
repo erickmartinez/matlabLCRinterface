@@ -1,9 +1,10 @@
 function LCR_ShortCompen(app)
-    logMessage(app,'Performing short comensation');
+    logMessage(app,'Performing short compensation');
     mode = app.ModeDropDown.Value;
     for i=2:9
         toggleArduinoPin(app,i,1);
     end
+    pause(1);
     fprintf(app.handle_lcr,'DISP:PAGE CSETUP');
     fprintf(app.handle_lcr,'CORR:LOAD:TYPE %s',mode);
     fprintf(app.handle_lcr,'CORR:SPOT1:SHORT');
